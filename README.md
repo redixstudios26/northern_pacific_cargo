@@ -16,7 +16,7 @@ Open http://localhost:3000. Supabase credentials are optional while exploring th
 
 ## Supabase preparation
 
-The project includes `@supabase/ssr` browser and server client helpers in `src/lib/supabase/`. They return `null` when credentials are not configured so the setup dashboard can run without a Supabase project. No credentials or service role key are committed. Before production use, add Supabase Auth flows, route protection/session refresh middleware, and database migrations with row-level security policies for each operational table.
+The project includes `@supabase/ssr` browser and server client helpers in `src/lib/supabase/`. They return `null` when credentials are not configured so the setup dashboard can run without a Supabase project. Configure `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` in `.env.local`. Never place a Supabase secret or service role key in a `NEXT_PUBLIC_` variable. No credentials are committed. Before production use, add Supabase Auth flows, route protection/session refresh middleware, and database migrations with row-level security policies for each operational table.
 
 ## Starter workspace data
 
