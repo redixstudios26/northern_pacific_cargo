@@ -2,6 +2,8 @@ node_modules/
 .next/
 out/
 dist/
+release/
+outputs/installer/
 coverage/
 .env*
 !.env.example

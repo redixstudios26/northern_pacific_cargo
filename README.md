@@ -22,6 +22,19 @@ Apply `supabase/migrations/202611170001_npc_flight_plans.sql` to create the priv
 
 The `.env.local` file is ignored by Git and must not be committed. Only the browser-safe publishable key belongs in the `NEXT_PUBLIC_` variable.
 
+## Windows desktop app
+
+To create a Windows installer, use Node.js 20.9 or newer on a Windows PC:
+
+```powershell
+npm install
+npm run desktop:package
+```
+
+The installer is written to `outputs/installer/`. Run **Northern Pacific Cargo Setup**, then open the app from the Start menu or desktop shortcut. The desktop app runs the Next.js server locally and connects to the configured Supabase project for sign-in and flight-plan storage. The Supabase publishable key is included in the app build; never include a service role key.
+
+For desktop magic-link sign-in, add `http://localhost:4173` to Supabase Auth URL Configuration's redirect URL allow list. The existing `http://localhost:3000` entry remains for browser development.
+
 ## Starter workspace data
 
 Before signing in, the displayed aircraft profile and flight board are explicitly illustrative local starter records. They are not live flight, weather, dispatch, cargo or accounting data. After signing in, flight plans come from Supabase; the aircraft profile remains a starter example. Financial information is intentionally absent.
@@ -33,3 +46,4 @@ The initial aircraft profile is the Cessna 208B Grand Caravan (tail number C-FNP
 - `npm run dev` — start the local development server
 - `npm run build` — create a production build
 - `npm start` — serve the production build
+- `npm run desktop:package` — build the app and create a Windows installer in `outputs/installer/`
